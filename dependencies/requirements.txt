@@ -1,0 +1,3 @@
+protobuf
+opencv-python
+redis
