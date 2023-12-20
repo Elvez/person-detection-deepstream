@@ -1,6 +1,6 @@
 syntax = "proto3";
 import "array.proto";
-import "detection_input.proto";
+import "detectioninput.proto";
 
 message Rect {
     int32 top = 1;
