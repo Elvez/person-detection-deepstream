@@ -59,7 +59,7 @@ class Pipeline:
         self.bus = None
         self.cap_fps = fps
     
-    def get_results_dict (self, sink):
+    def get_results_dict (sink):
         sample = sink.emit('pull-sample')
         buffer = sample.get_buffer()
         batch_meta = pyds.gst_buffer_get_nvds_batch_meta(hash(buffer))
@@ -101,6 +101,9 @@ class Pipeline:
                 break
 
         return results
+    
+    def push_frame (appsource, frame):
+        appsource.emit("push-buffer", Gst.Buffer.new_wrapped(frame.tobytes()))
 
     def osd_sink_pad_buffer_probe (pad,info,u_data):
         frame_number=0

@@ -14,10 +14,10 @@ def init_redis ():
 
 def input_callback (appsource, _size, u_data):
     # get frame from redis
-    appsource.emit("push-buffer", Gst.Buffer.new_wrapped(fframe.tobytes()))
+    Pipeline.push_frame(fframe)
 
 def output_callback (sink):
-    results = get_results_dict(sink)
+    results = Pipeline.get_results_dict(sink)
     if not results:
         return Gst.FlowReturn.OK
     else:
