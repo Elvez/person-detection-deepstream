@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "array.proto";
+import "detection_input.proto";
+
+message Rect {
+    int32 top = 1;
+    int32 left = 2;
+    int32 width = 3;
+    int32 height = 4;
+}
+
+message Detection {
+    string label = 1;
+    Rect bbox = 2;
+    float score = 3;
+}
+
+message DetectionOutput {
+    DetectionInput task = 1;
+    repeated Detection results = 2;
+}

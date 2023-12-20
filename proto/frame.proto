@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Frame {
+  bytes matrix = 1;
+  repeated int32 shape = 2 [packed=true];
+  string dtype = 3;
+}
+
+message BatchFrame {
+  repeated Frame frames = 1;
+}

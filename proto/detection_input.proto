@@ -1,0 +1,8 @@
+syntax = "proto3";
+import "frame.proto";
+
+message DetectionInput {
+    int32 feed_id = 1;
+    int32 feed_event_id = 2;
+    Frame frame = 3;
+}
