@@ -41,7 +41,7 @@ def stdout_log (lvl, function, message):
     formatted_message = f"[{timestamp}] [{lvl}] [{function}] {message}"
     print(formatted_message)
 
-class Pipeline:
+class PersonPipeline:
     def __init__ (self, fps=30, model_config="config_infer_primary.txt"):
         self.pipe = None
         self.appsource = None

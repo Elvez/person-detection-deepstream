@@ -2,7 +2,7 @@
 
 import os
 from config import *
-from pipeline import *
+from person_pipeline import *
 
 SAMPLE_FRAME_PATH = "/root/sample.jpeg"
 fframe = cv2.imread(SAMPLE_FRAME_PATH)
@@ -14,10 +14,10 @@ def init_redis ():
 
 def input_callback (appsource, _size, u_data):
     # get frame from redis
-    Pipeline.push_frame(appsource, fframe)
+    PersonPipeline.push_frame(appsource, fframe)
 
 def output_callback (sink):
-    results = Pipeline.get_results_dict(sink)
+    results = PersonPipeline.get_results_dict(sink)
     if results:
         stdout_log("info", "output", f"results: {str(results)}")
     
@@ -25,6 +25,6 @@ def output_callback (sink):
 
 if __name__ == "__main__":
     stdout_log("info", "task_consumer", "starting ...")
-    pipe = Pipeline(PROCESSING_FPS, "/root/jarvis-consumer/peopleNet/config_infer_primary_peoplenet.txt")
+    pipe = PersonPipeline(PROCESSING_FPS, "/root/jarvis-consumer/peopleNet/config_infer_primary_peoplenet.txt")
     pipe.initialise(input_callback, output_callback)
     pipe.run()
