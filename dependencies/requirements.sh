@@ -11,5 +11,6 @@ apt install -y \
     libgstreamer-plugins-base1.0-dev \
     libgstreamer1.0-dev \
     libx11-dev \
-    libcairo2-dev &&\
+    libcairo2-dev \
+    protobuf-compiler &&\
 echo "[jarvis] done!"
