@@ -14,14 +14,14 @@ def init_redis ():
 
 def input_callback (appsource, _size, u_data):
     # get frame from redis
-    Pipeline.push_frame(fframe)
+    Pipeline.push_frame(appsource, fframe)
 
 def output_callback (sink):
     results = Pipeline.get_results_dict(sink)
-    if not results:
-        return Gst.FlowReturn.OK
-    else:
+    if results:
         stdout_log("info", "output", f"results: {str(results)}")
+    
+    return Gst.FlowReturn.OK
 
 if __name__ == "__main__":
     stdout_log("info", "task_consumer", "starting ...")
