@@ -1,5 +1,5 @@
 syntax = "proto3";
-import "array.proto";
+import "frame.proto";
 import "detectioninput.proto";
 
 message Rect {
