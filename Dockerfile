@@ -3,6 +3,7 @@ LABEL MAINTAINER="pravesh.soni@staqu.com"
 
 WORKDIR /root/jarvis-consumer
 COPY dependencies/ /root/jarvis-consumer/dependencies
+COPY proto /root/jarvis-consumer/proto
 
 RUN ["/bin/bash", "/root/jarvis-consumer/dependencies/requirements.sh"]
 RUN ["/bin/bash", "-c", "pip install -r /root/jarvis-consumer/dependencies/requirements.txt"]
