@@ -3,6 +3,7 @@
 import os
 from config import *
 from person_pipeline import *
+from proto_parser import *
 
 SAMPLE_FRAME_PATH = "/root/sample.jpeg"
 fframe = cv2.imread(SAMPLE_FRAME_PATH)
